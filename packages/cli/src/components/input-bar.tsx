@@ -1,5 +1,6 @@
 import type { KeyBinding } from "@opentui/core";
 import { StatusBar } from "./status-bar";
+import { CommandMenu } from "../command-menu";
 
 type Props = {
   onSubmit: (text: string) => void;
@@ -28,6 +29,11 @@ export function InputBar({ onSubmit, disabled = false }: Props) {
           width="100%"
           gap={1}
         >
+          {true && (
+            <box position="absolute" bottom="100%" left={0} width="100%" backgroundColor="#1A1A24" zIndex={10}> 
+              <CommandMenu query=""/>
+            </box>
+          )}
           <textarea
             focused={!disabled}
             placeholder={`Ask anything... "Fix a bug in the database"`}
